@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #F7F5EF;
+  --color-surface: #FCFBF8;
+
+  --color-blue-soft: #A9C8E0;
+  --color-blue: #1769A6;
+
+  --color-green-soft: #A8CEC2;
+  --color-green: #258B80;
+
+  --color-navy: #102C46;
+  --color-text-muted: #647482;
+
+  --color-border: #E7E3DA;
+}
+
+@theme inline {
+  --color-ivory: var(--color-primary);
+  --color-porcelain: var(--color-surface);
+  --color-sky-soft: var(--color-blue-soft);
+  --color-logo-blue: var(--color-blue);
+  --color-sage-soft: var(--color-green-soft);
+  --color-logo-teal: var(--color-green);
+  --color-deep-navy: var(--color-navy);
+  --color-muted-slate: var(--color-text-muted);
+  --color-warm-stone: var(--color-border);
+
+  --font-heading: var(--font-manrope);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-primary);
+  color: var(--color-navy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-navy);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle technical grid motif */
+.bg-spatial-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(231, 227, 218, 0.55) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231, 227, 218, 0.55) 1px, transparent 1px);
+}
+
+/* Gentle fade-up entry animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
